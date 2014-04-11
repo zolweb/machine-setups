@@ -19,6 +19,7 @@
   with_items:
     - php5-common
     - php5-cli
+    - php5-dev
   sudo: yes
 
 - name: php extra packages
