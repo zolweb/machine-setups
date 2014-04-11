@@ -1,0 +1,6 @@
+---
+- name: install
+  apt: >
+    pkg=vim
+    state=present
+  sudo: yes

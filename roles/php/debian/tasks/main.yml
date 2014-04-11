@@ -1,0 +1,35 @@
+---
+- name: add repo php55
+  apt_repository: >
+    repo='deb http://packages.dotdeb.org wheezy-php55 all'
+    state=present
+  sudo: yes
+
+- name: add source repo php55
+  apt_repository: >
+    repo='deb-src http://packages.dotdeb.org wheezy-php55 all'
+    state=present
+    update_cache=yes
+  sudo: yes
+
+- name: php5 packages
+  apt: >
+    pkg={{ item }}
+    state=present
+  with_items:
+    - php5-common
+    - php5-cli
+  sudo: yes
+
+- name: php extra packages
+  apt: >
+    pkg={{ item }}
+    state=present
+  with_items: php_extensions
+  sudo: yes
+
+- name: set config
+  template: >
+    src={{ php_conf_template }}
+    dest=/etc/php5/cli/conf.d/100-conf.ini
+  sudo: yes

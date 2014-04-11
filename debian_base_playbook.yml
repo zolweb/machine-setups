@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  roles:
+    - base/debian
+    - vim/debian
+    - { role: vagrant/debian, plugins: ['vagrant-hostmanager'] }
+    - ruby/debian
+    - nodejs/debian
+    - php/debian
+    - composer/debian
+    - pear/debian
+    - php_cs/debian

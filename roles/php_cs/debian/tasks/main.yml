@@ -1,0 +1,8 @@
+---
+- name: install
+  get_url: >
+    url=http://cs.sensiolabs.org/get/php-cs-fixer.phar
+    dest=/usr/local/bin/php-cs-fixer
+    mode=0755
+    force=no
+  sudo: yes

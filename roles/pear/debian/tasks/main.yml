@@ -1,0 +1,6 @@
+---
+- name: install
+  apt: >
+    pkg=php-pear
+    state=present
+  sudo: yes

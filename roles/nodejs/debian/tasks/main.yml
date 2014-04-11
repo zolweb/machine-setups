@@ -1,0 +1,25 @@
+---
+- name: install Ubuntu
+  apt: >
+    pkg={{ item }}
+    state=present
+  with_items:
+    - nodejs
+  sudo: yes
+  when: "ansible_distribution == 'Ubuntu'"
+
+- name: install Debian
+  apt: >
+    pkg={{ item }}
+    state=present
+  with_items:
+    - nodejs
+    - nodejs-legacy
+  sudo: yes
+  when: "ansible_os_family == 'Debian' and ansible_distribution != 'Ubuntu'"
+
+- name: npm install
+  shell: >
+    curl -sS https://www.npmjs.org/install.sh | sh
+    creates=/usr/bin/npm
+  sudo: yes

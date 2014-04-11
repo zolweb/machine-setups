@@ -1,0 +1,11 @@
+---
+- name: install
+  shell: >
+    curl -sS https://getcomposer.org/installer | php
+    creates={{ composer_path }}
+
+- name: move
+  shell: >
+    mv composer.phar {{ composer_path }}
+    creates={{ composer_path }}
+  sudo: yes

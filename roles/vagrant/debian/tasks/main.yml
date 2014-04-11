@@ -1,0 +1,32 @@
+---
+- name: get facts vagrant
+  command: which vagrant
+  register: vagrant_installed
+
+- name: download x86_64
+  get_url: >
+    url=https://dl.bintray.com/mitchellh/vagrant/vagrant_1.5.2_x86_64.deb
+    dest=/tmp/vagrant152.deb
+    force=no
+  when: ansible_machine == 'x86_64' and vagrant_installed.rc != 0
+
+- name: download i686
+  get_url: >
+    url=https://dl.bintray.com/mitchellh/vagrant/vagrant_1.5.2_i686.deb
+    dest=/tmp/vagrant152.deb
+    force=no
+  when: ansible_machine == 'i686' and vagrant_installed.rc != 0
+
+- name: install .deb package
+  command: dpkg -i /tmp/vagrant152.deb
+  sudo: yes
+  when: vagrant_installed.rc != 0
+
+- name: get vagrant plugin facts
+  command: vagrant plugin list
+  register: vagrant_plugins
+
+- name: Install vagrant plugins
+  command: vagrant plugin install {{ item }}
+  with_items: plugins
+  when: vagrant_plugins.stdout.find('vagrant-hostmanager') == -1
