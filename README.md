@@ -19,7 +19,7 @@ Debian/Ubuntu
 To perform the install just run this command line and answer the questions!
 
 ```shell
-curl http:// | sh
+curl https://raw.githubusercontent.com/zolweb/machine-setups/master/debian.sh | sh
 ```
 This script will install on your machine:
  - git
