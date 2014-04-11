@@ -1,0 +1,20 @@
+---
+- name: get facts
+  command: php -i | grep twig
+  register: twig_installed
+
+- name: discover pear channel
+  command: pear channel-discover pear.twig-project.org
+  when: twig_installed.rc != 0
+  sudo: yes
+
+- name: install extension
+  command: pear install twig/CTwig
+  when: twig_installed.rc != 0
+  sudo: yes
+
+- name: add extension to the conf
+  template: >
+    src=twig.ini.j2
+    dest=/etc/php5/conf.d/100-twig.ini
+  sudo: yes
