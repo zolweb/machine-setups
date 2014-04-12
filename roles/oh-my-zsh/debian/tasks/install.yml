@@ -18,8 +18,8 @@
     line="plugins=(git composer symfony2 history history-substring-search)"
     regexp="plugins=\(.*\)"
 
-- name: shell
+- name: change shell
   user: >
     name={{ user }}
     shell=/bin/zsh
-  when: omz_installed.rc != 0
+  sudo: yes
