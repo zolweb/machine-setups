@@ -5,4 +5,3 @@ php_extensions:
   - php5-curl
   - php5-mysql
   - php5-sqlite
-  - php-apc
