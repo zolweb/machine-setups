@@ -16,6 +16,7 @@
   apt: >
     pkg={{ item }}
     state=present
+    force=yes
   with_items:
     - php5-common
     - php5-cli
@@ -26,6 +27,7 @@
   apt: >
     pkg={{ item }}
     state=present
+    force=yes
   with_items: php_extensions
   sudo: yes
 
