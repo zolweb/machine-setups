@@ -1,7 +1,8 @@
 ---
 - name: get facts
-  command: php -m | grep twig
+  shell: php -m | grep twig
   register: twig_installed
+  ignore_errors: true
 
 - name: discover pear channel
   command: pear channel-discover pear.twig-project.org
