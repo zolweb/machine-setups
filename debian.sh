@@ -1,6 +1,6 @@
 #!/bin/sh
 
-REPO="git@github.com:zolweb/machine-setups.git"
+REPO="https://github.com/zolweb/machine-setups.git"
 REPO_TMP="/tmp/zol-machine-setup"
 # REPO_TMP=`dirname $0`
 
