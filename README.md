@@ -6,8 +6,8 @@ WIP
 Some scripts to setup "all-in-one" configured machines for Web (PHP) development
 
 For now we're trying to create the configuration for:
- - Debian/Ubuntu
- - Mac OS X
+ - Debian/Ubuntu (Tested on both)
+ - Mac OS X (WIP)
 
 To install an all new machine into a complete dev web work station, follow the steps below.
 
@@ -33,6 +33,10 @@ This script will install on your machine:
     * pear
     * composer
     * PHP CS
+    * php5-intl
+    * php5-curl
+    * php5-mysql
+    * php5-sqlite
  - vagrant
     * hostmanager
  - oh-my-zsh
