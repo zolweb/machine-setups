@@ -1,0 +1,16 @@
+---
+- name: get facts
+  shell: ls -a /home/{{ user }} | grep .oh-my-zsh
+  register: omz_installed
+  ignore_errors: true
+
+- name: packages
+  apt: >
+    pkg={{ item }}
+    state=present
+  with_items:
+    - zsh
+  sudo: yes
+
+- include: install.yml
+  when: omz_installed.rc != 0

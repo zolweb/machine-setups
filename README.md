@@ -25,11 +25,17 @@ This script will install on your machine:
  - git
  - ansible
  - vim
- - ruby with rubygems
- - nodejs with npm
- - php with composer and pear
- - php cs
- - vagrant with hostmanager plugin
+ - ruby
+    * rubygems
+ - nodejs
+    * npm
+ - php
+    * pear
+    * composer
+    * PHP CS
+ - vagrant
+    * hostmanager
+ - oh-my-zsh
 
 
 License

@@ -2,7 +2,8 @@
 
 REPO="https://github.com/zolweb/machine-setups.git"
 REPO_TMP="/tmp/zol-machine-setup"
-# REPO_TMP=`dirname $0`
+USER=`whoami`
+#REPO_TMP=`dirname $0`
 
 if ! which git > /dev/null; then
     echo "Install git"
@@ -28,4 +29,4 @@ if ! sh debian/install_ansible.sh; then
     exit 1
 fi
 
-ansible-playbook -i hosts.yml -K debian_base_playbook.yml
+ansible-playbook -i hosts.yml -K debian_base_playbook.yml --extra-vars "user=${USER}"

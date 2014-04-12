@@ -11,3 +11,4 @@
     - composer/debian
     - pear/debian
     - php_cs/debian
+    - oh-my-zsh/debian
