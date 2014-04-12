@@ -16,5 +16,5 @@
 - name: add extension to the conf
   template: >
     src=twig.ini.j2
-    dest=/etc/php5/conf.d/100-twig.ini
+    dest=/etc/php5/cli/conf.d/100-twig.ini
   sudo: yes
