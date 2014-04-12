@@ -30,3 +30,9 @@ This script will install on your machine:
  - php with composer and pear
  - php cs
  - vagrant with hostmanager plugin
+
+
+License
+-------
+
+Licensed under the MIT License
