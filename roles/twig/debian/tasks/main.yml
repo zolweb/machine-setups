@@ -1,6 +1,6 @@
 ---
 - name: get facts
-  command: php -i | grep twig
+  command: php -m | grep twig
   register: twig_installed
 
 - name: discover pear channel
