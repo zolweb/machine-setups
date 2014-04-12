@@ -9,10 +9,10 @@ if ! which git > /dev/null; then
     sudo apt-get install -y git
 
     echo "Git configuration"
-    echo "Your name: "
-    read name
-    echo "Your email: "
-    read email
+    echo -n "Your name: "
+    read name < /dev/tty
+    echo -n "Your email: "
+    read email < /dev/tty
 
     git config --global user.name "${name}"
     git config --global user.email "${email}"
