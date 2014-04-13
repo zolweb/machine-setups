@@ -2,8 +2,12 @@
 
 if ! which ansible > /dev/null; then
     echo "Install Ansible"
-    sudo apt-get install -y python-setuptools python-dev
-    sudo easy_install pip
+
+    if ! which pip > /dev/null; then
+        sudo apt-get install -y python-setuptools python-dev
+        sudo easy_install pip
+    fi
+
     sudo pip install ansible
 fi
 
