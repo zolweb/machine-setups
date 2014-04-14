@@ -40,6 +40,7 @@ This script will install on your machine:
  - vagrant
     * hostmanager
  - oh-my-zsh
+    * with plugins: git, symfony, history
 
 
 License
