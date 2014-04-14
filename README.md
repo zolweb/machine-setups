@@ -14,6 +14,8 @@ To install an all new machine into a complete dev web work station, follow the s
 Debian/Ubuntu
 -------------
 
+[![Build Status](https://travis-ci.org/zolweb/machine-setups.svg?branch=master)](https://travis-ci.org/zolweb/machine-setups)
+
 *For now you must install by hands virtualbox, if you need it of course*
 
 To perform the install just run this command line and answer the questions!
