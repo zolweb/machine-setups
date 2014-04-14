@@ -1,16 +1,23 @@
 ---
-- name: add repo php55
+- name: add debian repo php55
   apt_repository: >
     repo='deb http://packages.dotdeb.org wheezy-php55 all'
     state=present
   sudo: yes
+  when: "ansible_os_family == 'Debian' and ansible_distribution != 'Ubuntu'"
 
-- name: add source repo php55
+- name: add debian source repo php55
   apt_repository: >
     repo='deb-src http://packages.dotdeb.org wheezy-php55 all'
     state=present
     update_cache=yes
   sudo: yes
+  when: "ansible_os_family == 'Debian' and ansible_distribution != 'Ubuntu'"
+
+- name: add ubuntu repo
+  apt_repository: repo='ppa:ondrej/php5'
+  sudo: yes
+  when: "ansible_distribution == 'Ubuntu'"
 
 - name: php5 packages
   apt: >

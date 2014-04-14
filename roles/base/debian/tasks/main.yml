@@ -6,5 +6,6 @@
   with_items:
     - curl
     - python-pycurl
+    - python-software-properties
     - nfs-kernel-server
   sudo: yes
