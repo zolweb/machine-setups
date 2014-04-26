@@ -1,0 +1,30 @@
+---
+- name: package
+  apt: pkg=apache2 state=present
+  sudo: yes
+
+- name: packages
+  apt: >
+    pkg={{ item }}
+    state=present
+    force=yes
+  with_items: apache_packages
+  sudo: yes
+  notify: restart apache
+
+- name: Enable modules
+  command: a2enmod {{ item }}
+  with_items: apache_modules
+  sudo: yes
+  notify: restart apache
+
+- name: Desactivate default vhost
+  command: a2dissite 000-default
+  sudo: yes
+  notify: reload apache
+
+- name: set php config
+  template: >
+    src={{ php_conf_template }}
+    dest=/etc/php5/apache2/conf.d/100-conf.ini
+  sudo: yes

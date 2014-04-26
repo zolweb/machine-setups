@@ -1,0 +1,25 @@
+---
+- name: package
+  apt: >
+    pkg={{ item }}
+    state=present
+  sudo: yes
+  with_items:
+    - mysql-server
+    - mysql-client
+    - libmysqlclient-dev
+    - python-mysqldb
+
+- name: create mysql databases
+  mysql_db: name={{ item }} encoding=utf8 collation=utf8_general_ci
+  when: mysql_db_names is defined
+  with_items: mysql_db_names
+
+# Example:
+# mysql_users:
+#   - { name: "bob", password: "sdfzef78!"}
+#   - { name: "john", password: "sqdqss47"}
+- name: create mysql users
+  mysql_user: name={{ item.name }} password={{ item.password }} priv=*.*:ALL
+  when: mysql_users is defined
+  with_items: mysql_users

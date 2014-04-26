@@ -1,0 +1,15 @@
+# Packages for apache
+apache_packages:
+  - apache2-doc
+  - apache2-utils
+  - apache2-mpm-itk
+  - libapache2-mod-php5
+
+# Modules for apache
+apache_modules:
+  - alias
+  - rewrite
+  - php5
+
+# php conf
+php_conf_template: php.ini.j2

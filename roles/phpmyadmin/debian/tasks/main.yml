@@ -1,0 +1,20 @@
+---
+- name: package
+  apt: pkg=phpmyadmin state=present force=yes
+  sudo: yes
+
+- name: conf
+  template: >
+    src=phpmyadmin.conf.j2
+    dest=/etc/dbconfig-common/phpmyadmin.conf
+  sudo: yes
+
+- name: ensure phpmyadmin installed
+  command: >
+    ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf.d/phpmyadmin.conf
+    creates=/etc/apache2/conf.d/phpmyadmin.conf
+  sudo: yes
+
+- name: ensure phpmyadmin site reloaded
+  service: name=apache2 state=restarted
+  sudo: yes

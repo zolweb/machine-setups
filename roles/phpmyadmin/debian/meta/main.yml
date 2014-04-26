@@ -1,0 +1,5 @@
+---
+dependencies:
+    - {role: php/debian }
+    - {role: apache/debian }
+    - {role: mysql/debian }

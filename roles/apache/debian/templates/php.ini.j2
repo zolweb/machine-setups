@@ -1,0 +1,11 @@
+[Date]
+date.timezone = {{ php_timezone | default('Europe/Paris') }}
+
+memory_limit = {{ php_memory | default('512M') }}
+
+error_reporting = E_ALL
+display_errors = On
+display_startup_errors = On
+log_errors = On
+track_errors = On
+html_errors = On

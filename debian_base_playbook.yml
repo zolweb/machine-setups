@@ -1,9 +1,14 @@
 ---
 - hosts: localhost
+  vars:
+    mysql_users:
+      - { name: vagrant, password: vagrant }
   roles:
+    - git/debian
     - base/debian
     - vim/debian
     - { role: vagrant/debian, plugins: ['vagrant-hostmanager'] }
+    - oh-my-zsh/debian
     - ruby/debian
     - nodejs/debian
     - php/debian
@@ -11,4 +16,7 @@
     - composer/debian
     - pear/debian
     - php_cs/debian
-    - oh-my-zsh/debian
+    - phpunit/debian
+    - apache/debian
+    - mysql/debian
+    - phpmyadmin/debian
